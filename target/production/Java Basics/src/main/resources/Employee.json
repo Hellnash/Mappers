@@ -1,0 +1,27 @@
+[
+  {
+    "name":"shubham",
+    "age":"28",
+    "department":"software"
+  },
+  {
+    "name":"lovely",
+    "age":"26",
+    "department":"accounts"
+  },
+  {
+    "name":"satyam",
+    "age":"27",
+    "department":"database"
+  },
+  {
+    "name":"ravi",
+    "age":"30",
+    "department":"engineering"
+  },
+  {
+    "name":"rakhi",
+    "age":"25",
+    "department":"insurance"
+  }
+]

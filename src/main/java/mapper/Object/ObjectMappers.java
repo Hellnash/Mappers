@@ -4,6 +4,10 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.List;
 import java.util.Map;
 
@@ -12,7 +16,7 @@ public class ObjectMappers {
     private static final String JSON_COLLECTION = "[{\"name\":\"shubham\",\"age\":\"28\",\"department\":\"software\"}," +
                                                   "{\"name\":\"lovely\",\"age\":\"26\",\"department\":\"accounts\"}]";
 
-    public static void main(String[] args) throws JsonProcessingException {
+    public static void main(String[] args) throws IOException {
         //Map to an object
         ObjectMapper objectMapper = new ObjectMapper();
         Employee employee = objectMapper.readValue(JSON, Employee.class);
@@ -30,5 +34,11 @@ public class ObjectMappers {
             System.out.println("Key:"+key);
             System.out.println("Value:"+employeeMap.get(key));
         });
+        //Json File to List of Employees
+        InputStream iS = new FileInputStream("Employee.json");
+        List<Employee> allEmployees = objectMapper.readValue(iS, new TypeReference<List<Employee>>() {});
+        for (Employee emp : allEmployees) {
+            System.out.println(emp);
+        }
     }
 }
